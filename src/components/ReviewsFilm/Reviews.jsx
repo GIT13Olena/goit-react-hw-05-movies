@@ -7,8 +7,18 @@ function Reviews() {
   const [reviews, setReviews] = useState([]);
 
   useEffect(() => {
+    const fetchMovieReviews = async () => {
+      try {
+        const response = await getMovieReviews(movieId);
+        setReviews(response.results);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
     fetchMovieReviews();
-  }, [movieId]);
+  }, [movieId, fetchMovieReviews]);
+
 
   const fetchMovieReviews = async () => {
     try {
