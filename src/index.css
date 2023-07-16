@@ -1,4 +1,8 @@
-@import-normalize; /* bring in normalize.css styles */
+@import url('https://necolas.github.io/normalize.css/8.0.1/normalize.css');
+@import './components/app.module.css';
+@import './components/HomePage/home.module.css';
+@import './components/MovieDetails/movieDetalis.module.css';
+@import './components/MoviesFilm/movies.module.css';
 
 body {
   margin: 0;
@@ -7,9 +11,27 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-image: url('./components/image/1613515705_58-p-fon-dlya-prezentatsii-na-temu-kino-67.png');
+  background-size: cover;
+  background-position: center;
+  color: white;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+li {
+  list-style-type: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  color: white;
 }

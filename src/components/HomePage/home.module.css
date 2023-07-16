@@ -1,0 +1,14 @@
+.div-movies {
+  padding: 10px 60px 60px 60px;
+}
+
+.div-movies-link {
+  text-decoration: none;
+}
+
+.div-movies-h1 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 0;
+}

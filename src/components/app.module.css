@@ -1,0 +1,25 @@
+.header {
+  display: flex;
+  align-items: center;
+  margin: 0px 90px 0px 90px;
+  background-color: black;
+  padding: 20px;
+}
+
+.header-ul {
+  display: contents;
+}
+
+.go-back-link {
+  text-decoration: none;
+  color: white;
+  margin-right: 18px;
+}
+
+.nav-link {
+  font-size: 18px;
+  text-decoration: none;
+  color: white;
+  padding: 10px 20px;
+  margin: 10px;
+}

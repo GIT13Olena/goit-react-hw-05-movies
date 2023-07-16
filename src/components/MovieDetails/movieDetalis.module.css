@@ -1,0 +1,62 @@
+.details-container {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.img-poster {
+  margin: 10px 0px 20px 90px;
+}
+
+.details-right {
+  display: flex;
+  flex-direction: column;
+  margin-left: 20px;
+  margin-right: 90px;
+}
+
+.div-detalis-film {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.additional-info {
+  margin-top: 20px;
+}
+
+.div-additional-info {
+  margin-left: 90px;
+  margin-top: 20px;
+  position: relative;
+}
+
+.h2-additional-info {
+  margin-bottom: 10px;
+}
+
+.button-cast {
+  height: fit-content;
+  display: block;
+}
+
+.button-reviews {
+  height: fit-content;
+  display: block;
+}
+
+.ul-actors {
+  display: flex;
+  margin-top: 20px;
+  list-style-type: none;
+  gap: 10px;
+  flex-flow: wrap;
+}
+
+.ul-actors-p {
+  width: 200px;
+}
+
+.ul-all-reviews {
+  margin-right: 90px;
+}
