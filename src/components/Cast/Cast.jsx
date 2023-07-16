@@ -17,16 +17,7 @@ function Cast() {
     };
 
     fetchMovieCredits();
-  }, [movieId, fetchMovieCredits]);
-
-  const fetchMovieCredits = async () => {
-    try {
-      const response = await getMovieCredits(movieId);
-      setCast(response.data.cast);
-    } catch (error) {
-      console.error(error);
-    }
-  };
+  }, [movieId]);
 
   return (
     <div>
