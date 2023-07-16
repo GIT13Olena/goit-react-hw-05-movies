@@ -7,8 +7,17 @@ function Cast() {
   const [cast, setCast] = useState([]);
 
   useEffect(() => {
+    const fetchMovieCredits = async () => {
+      try {
+        const credits = await getMovieCredits(movieId);
+        setCast(credits.cast);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
     fetchMovieCredits();
-  }, [movieId]);
+  }, [movieId, fetchMovieCredits]);
 
   const fetchMovieCredits = async () => {
     try {
