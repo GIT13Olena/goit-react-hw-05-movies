@@ -19,17 +19,6 @@ function Reviews() {
     fetchMovieReviews();
   }, [movieId]);
 
-
-
-  const fetchMovieReviews = async () => {
-    try {
-      const response = await getMovieReviews(movieId);
-      setReviews(response.data.results);
-    } catch (error) {
-      console.error(error);
-    }
-  };
-
   return (
     <div>
       <h1>Reviews</h1>
