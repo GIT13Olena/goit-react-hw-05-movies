@@ -17,7 +17,8 @@ function Reviews() {
     };
 
     fetchMovieReviews();
-  }, [movieId, fetchMovieReviews]);
+  }, [movieId]);
+
 
 
   const fetchMovieReviews = async () => {
