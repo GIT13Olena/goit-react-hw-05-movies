@@ -3,7 +3,7 @@ import { useParams, useLocation, useNavigate } from 'react-router-dom';
 import { getMovieDetails, getMovieCast, getMovieReviews } from '../api';
 import './movieDetalis.module.css';
 
-function MovieDetails({ setPreviousPath }) {
+function MovieDetails() {
   const { movieId } = useParams();
   const location = useLocation();
   const navigate = useNavigate();
@@ -12,6 +12,7 @@ function MovieDetails({ setPreviousPath }) {
   const [reviews, setReviews] = useState([]);
   const [isCastExpanded, setIsCastExpanded] = useState(false);
   const [isReviewsExpanded, setIsReviewsExpanded] = useState(false);
+  const [previousPath, setPreviousPath] = useState(null);
 
   useEffect(() => {
     const fetchMovieDetails = async () => {
@@ -56,10 +57,14 @@ function MovieDetails({ setPreviousPath }) {
 
   useEffect(() => {
     setPreviousPath(location.pathname);
-  }, [location.pathname, setPreviousPath]);
+  }, [location.pathname]);
 
   const handleGoBack = () => {
-    navigate(-1);
+    if (previousPath) {
+      navigate(previousPath);
+    } else {
+      navigate('/');
+    }
   };
 
   if (!movie) {
