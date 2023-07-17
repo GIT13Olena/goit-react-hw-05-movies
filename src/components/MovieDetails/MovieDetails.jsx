@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useLocation, useNavigate } from 'react-router-dom';
 import { getMovieDetails, getMovieCast, getMovieReviews } from '../api';
 import './movieDetalis.module.css';
 
-function MovieDetails() {
+function MovieDetails({ setPreviousPath }) {
   const { movieId } = useParams();
+  const location = useLocation();
+  const navigate = useNavigate();
   const [movie, setMovie] = useState(null);
   const [cast, setCast] = useState([]);
   const [reviews, setReviews] = useState([]);
@@ -50,6 +52,14 @@ function MovieDetails() {
 
   const toggleReviews = () => {
     setIsReviewsExpanded(!isReviewsExpanded);
+  };
+
+  useEffect(() => {
+    setPreviousPath(location.pathname);
+  }, [location.pathname, setPreviousPath]);
+
+  const handleGoBack = () => {
+    navigate(-1);
   };
 
   if (!movie) {
@@ -117,6 +127,10 @@ function MovieDetails() {
           )}
         </div>
       </div>
+
+      <button onClick={handleGoBack} className="go-back-button">
+        &#11164; Go Back
+      </button>
     </div>
   );
 }

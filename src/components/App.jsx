@@ -1,5 +1,11 @@
-import React, { Suspense, useState } from 'react';
-import { Routes, Route, Link } from 'react-router-dom';
+import React, { Suspense, useState, useEffect } from 'react';
+import {
+  Routes,
+  Route,
+  Link,
+  useLocation,
+  useNavigate,
+} from 'react-router-dom';
 import './app.module.css';
 
 const Home = React.lazy(() => import('./HomePage/Home'));
@@ -10,15 +16,26 @@ const Reviews = React.lazy(() => import('./ReviewsFilm/Reviews'));
 
 function App() {
   const [searchResults, setSearchResults] = useState([]);
+  const [previousPath, setPreviousPath] = useState(null);
+  const location = useLocation();
+  const navigate = useNavigate();
 
   const handleSearchResults = results => {
     setSearchResults(results);
   };
 
+  useEffect(() => {
+    setPreviousPath(location.pathname);
+  }, [location.pathname]);
+
+  const handleGoBack = () => {
+    navigate(-1);
+  };
+
   return (
     <div>
       <nav className="header">
-        <Link to="/" className="go-back-link">
+        <Link to="/" className="go-back-link" onClick={handleGoBack}>
           &#11164; Go Back
         </Link>
         <ul className="header-ul">
@@ -36,7 +53,7 @@ function App() {
       </nav>
 
       <Suspense fallback={<div>Loading...</div>}>
-        <Routes>
+        <Routes location={location}>
           <Route path="/" element={<Home />} />
           <Route
             path="/movies"
@@ -47,7 +64,10 @@ function App() {
               />
             }
           />
-          <Route path="/movies/:movieId" element={<MovieDetails />} />
+          <Route
+            path="/movies/:movieId"
+            element={<MovieDetails setPreviousPath={setPreviousPath} />}
+          />
           <Route path="/movies/:movieId/cast" element={<Cast />} />
           <Route path="/movies/:movieId/reviews" element={<Reviews />} />
         </Routes>
