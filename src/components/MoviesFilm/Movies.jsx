@@ -1,3 +1,4 @@
+// Movies.jsx
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { MoviesContext } from './MoviesContext';
@@ -10,8 +11,13 @@ function Movies() {
   return (
     <div>
       <h1 className="h1-movies">Movies</h1>
-      <form onSubmit={handleSearchSubmit} className="form-searh">
-        <input type="text" value={searchQuery} onChange={handleSearchChange} />
+      <form onSubmit={handleSearchSubmit}>
+        <input
+          type="text"
+          value={searchQuery}
+          onChange={handleSearchChange}
+          className="input-search"
+        />
         <button type="submit">Search</button>
       </form>
       <ul>

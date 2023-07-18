@@ -31,17 +31,17 @@ function App() {
     <div>
       <nav className="header">
         <Link to="/" className="go-back-link" onClick={handleGoBack}>
-          &#11164; Повернутися
+          &#11164; Go back
         </Link>
         <ul className="header-ul">
           <li>
             <Link to="/" className="nav-link">
-              Головна
+              Home
             </Link>
           </li>
           <li>
             <Link to="/movies" className="nav-link">
-              Пошук фільмів
+              Search for movies
             </Link>
           </li>
         </ul>
