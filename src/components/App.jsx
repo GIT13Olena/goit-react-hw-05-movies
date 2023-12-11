@@ -1,4 +1,5 @@
-import React, { Suspense, useState } from 'react';
+// App.js
+import React, { Suspense, useState, useEffect, useRef } from 'react';
 import {
   Routes,
   Route,
@@ -6,6 +7,7 @@ import {
   useLocation,
   useNavigate,
 } from 'react-router-dom';
+import initializeCanvas from './canvas';
 import './app.module.css';
 
 const Home = React.lazy(() => import('./HomePage/Home'));
@@ -18,6 +20,7 @@ function App() {
   const [searchResults, setSearchResults] = useState([]);
   const location = useLocation();
   const navigate = useNavigate();
+  const canvasRef = useRef(null);
 
   const handleSearchResults = results => {
     setSearchResults(results);
@@ -26,6 +29,12 @@ function App() {
   const handleGoBack = () => {
     navigate(-1);
   };
+
+  useEffect(() => {
+    if (canvasRef.current) {
+      initializeCanvas(canvasRef.current);
+    }
+  }, []);
 
   return (
     <div>
@@ -46,6 +55,12 @@ function App() {
           </li>
         </ul>
       </nav>
+
+      <canvas
+        ref={canvasRef}
+        id="canvas"
+        className="background-canvas"
+      ></canvas>
 
       <Suspense fallback={<div>Loading...</div>}>
         <Routes location={location}>

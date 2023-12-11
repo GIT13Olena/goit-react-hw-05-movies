@@ -13,13 +13,10 @@ function Home() {
   const fetchTrendingMovies = async () => {
     try {
       const response = await getTrendingMovies();
-      console.log('Response:', response);
       startTransition(() => {
         if (Array.isArray(response)) {
-          console.log('Response data:', response);
           setTrendingMovies(response);
         } else {
-          console.log('Invalid response structure:', response);
           setTrendingMovies([]);
         }
       });
@@ -35,7 +32,7 @@ function Home() {
         {trendingMovies.map(movie => (
           <li key={movie.id}>
             <Link className="div-movies-link" to={`/movies/${movie.id}`}>
-              <h2>&#127916;{movie.title}</h2>
+              <h2>{movie.title}</h2>
             </Link>
           </li>
         ))}
