@@ -3,5 +3,14 @@
 }
 
 .input-search {
+  margin: 0px 15px 0px 90px;
   margin-left: 90px;
+  background-color: rgb(220 214 214 / 20%);
+  width: 300px;
+  color: white;
+  font-size: 20px;
+  font-weight: 600;
+  height: 50px;
+  border-radius: 15px;
+  border-color: transparent;
 }

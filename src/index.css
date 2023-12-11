@@ -44,3 +44,7 @@ p {
   height: 100%;
   z-index: -1;
 }
+
+p {
+  font-size: 20px;
+}
