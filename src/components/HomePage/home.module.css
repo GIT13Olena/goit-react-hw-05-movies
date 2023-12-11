@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Holtwood+One+SC&display=swap');
+
 .div-movies {
   padding: 10px 60px 60px 60px;
 }
@@ -11,4 +13,61 @@
   align-items: center;
   justify-content: center;
   padding-top: 0;
+  font-family: 'Holtwood One SC', sans-serif;
+  font-size: 50px;
+  background: linear-gradient(
+    to right,
+    blue,
+    pink,
+    rgb(60, 13, 228),
+    #015eff,
+    #051857,
+    #21ffff,
+    rgb(44, 90, 255),
+    rgb(235, 72, 224),
+    rgb(173, 41, 255)
+  );
+  background-size: 200% 200%;
+  animation: gradient-animation 5s ease infinite;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke: 1px black;
+}
+
+@keyframes gradient-animation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.list-movies {
+  column-gap: 2%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+.item-movie {
+  display: flex;
+  align-items: flex-start;
+  width: 200px;
+}
+
+.movie-poster {
+  width: 200px;
+  height: 300px;
+}
+
+.titlt-movie {
+  font-size: 18px;
+  margin-top: 5px;
 }

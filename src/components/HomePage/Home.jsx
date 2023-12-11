@@ -28,11 +28,18 @@ function Home() {
   return (
     <div className="div-movies">
       <h1 className="div-movies-h1">Trending Movies</h1>
-      <ul>
+      <ul className="list-movies">
         {trendingMovies.map(movie => (
-          <li key={movie.id}>
+          <li key={movie.id} className="item-movie">
             <Link className="div-movies-link" to={`/movies/${movie.id}`}>
-              <h2>{movie.title}</h2>
+              {movie.poster_path && (
+                <img
+                  src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+                  alt={movie.title}
+                  className="movie-poster"
+                />
+              )}
+              <h2 className="titlt-movie">{movie.title}</h2>
             </Link>
           </li>
         ))}
