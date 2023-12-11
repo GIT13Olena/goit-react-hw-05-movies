@@ -59,10 +59,10 @@ function MovieDetails() {
   const { title, overview, poster_path, genres, vote_average } = movie;
 
   return (
-    <div>
-      <div className="details-container">
+    <div className="details-container">
+      <div className="overlay">
         <img
-          src={`https://image.tmdb.org/t/p/w200/${poster_path}`}
+          src={`https://image.tmdb.org/t/p/w300/${poster_path}`}
           alt={title}
           className="img-poster"
         />

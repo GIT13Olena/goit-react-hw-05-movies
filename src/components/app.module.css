@@ -1,13 +1,40 @@
+@keyframes gradient-border-animation {
+  0% {
+    border-image-slice: 1;
+  }
+  100% {
+    border-image-slice: 0.5;
+  }
+}
+
 .header {
   display: flex;
   align-items: center;
-  margin: 0px 90px 0px 90px;
-  background-color: black;
-  padding: 20px;
+  justify-content: space-between;
+
+  padding: 10px;
+  margin: 20px 70px 0px 70px;
+
+  background: rgba(19, 19, 19, 0.375);
+  border: 3px solid transparent;
+  border-image: linear-gradient(
+    to right,
+    blue,
+    pink,
+    rgb(60, 13, 228),
+    #015eff,
+    #051857,
+    #21ffff,
+    rgb(44, 90, 255),
+    rgb(235, 72, 224),
+    rgb(173, 41, 255)
+  );
+  border-image-slice: 1;
+  animation: gradient-border-animation 5s ease infinite;
 }
 
 .header-ul {
-  display: contents;
+  display: flex;
 }
 
 .go-back-link {

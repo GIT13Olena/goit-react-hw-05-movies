@@ -36,12 +36,17 @@ function App() {
     }
   }, []);
 
+  const showGoBackButton =
+    location.pathname.includes('/movies/') && location.pathname !== '/movies';
+
   return (
     <div>
       <nav className="header">
-        <Link to="/" className="go-back-link" onClick={handleGoBack}>
-          &#11164; Go back
-        </Link>
+        {showGoBackButton && (
+          <Link to="/" className="go-back-link" onClick={handleGoBack}>
+            &#11164; Go back
+          </Link>
+        )}
         <ul className="header-ul">
           <li>
             <Link to="/" className="nav-link">
