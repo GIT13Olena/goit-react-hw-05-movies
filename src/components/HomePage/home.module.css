@@ -71,3 +71,34 @@
   font-size: 18px;
   margin-top: 5px;
 }
+
+@media screen and (max-width: 426px) {
+  .div-movies-h1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding-top: 0;
+    font-family: 'Holtwood One SC', sans-serif;
+    font-size: 32px;
+    background: linear-gradient(
+      to right,
+      blue,
+      pink,
+      rgb(60, 13, 228),
+      #015eff,
+      #051857,
+      #21ffff,
+      rgb(44, 90, 255),
+      rgb(235, 72, 224),
+      rgb(173, 41, 255)
+    );
+    background-size: 200% 200%;
+    animation: gradient-animation 5s ease infinite;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke: 1px black;
+  }
+}

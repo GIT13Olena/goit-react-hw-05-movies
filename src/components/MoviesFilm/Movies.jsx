@@ -21,7 +21,12 @@ function Movies() {
             onChange={handleSearchChange}
             className="input-search"
           />
-          <img src={search} alt="svg search" onClick={handleSearchSubmit} />
+          <img
+            src={search}
+            alt="svg search"
+            onClick={handleSearchSubmit}
+            className="search-svg"
+          />
         </form>
       </div>
       <ul className="list-movies">
