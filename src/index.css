@@ -36,6 +36,10 @@ p {
   color: white;
 }
 
+a {
+  text-decoration: none;
+}
+
 .background-canvas {
   position: fixed;
   top: 0;

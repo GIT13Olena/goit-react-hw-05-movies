@@ -1,6 +1,9 @@
 import React, { useEffect, useState, startTransition } from 'react';
 import { Link } from 'react-router-dom';
 import { getTrendingMovies } from '../api';
+
+import defaultImg from '../../img/default img film.png';
+
 import './home.module.css';
 
 function Home() {
@@ -32,10 +35,16 @@ function Home() {
         {trendingMovies.map(movie => (
           <li key={movie.id} className="item-movie">
             <Link className="div-movies-link" to={`/movies/${movie.id}`}>
-              {movie.poster_path && (
+              {movie.poster_path ? (
                 <img
                   src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
                   alt={movie.title}
+                  className="movie-poster"
+                />
+              ) : (
+                <img
+                  src={defaultImg}
+                  alt="Default Poster"
                   className="movie-poster"
                 />
               )}

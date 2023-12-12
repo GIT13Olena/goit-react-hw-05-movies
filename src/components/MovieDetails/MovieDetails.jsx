@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { getMovieDetails, getMovieCast, getMovieReviews } from '../api';
 
+import notPeople from '../../img/no people img.png';
 import star from '../../icons/star.svg';
 
 import './movieDetalis.module.css';
@@ -46,10 +47,6 @@ function MovieDetails() {
     fetchMovieCast();
     fetchMovieReviews();
   }, [movieId]);
-
-  // const toggleCast = () => {
-  //   setIsCastExpanded(!isCastExpanded);
-  // };
 
   const toggleReviews = () => {
     setIsReviewsExpanded(!isReviewsExpanded);
@@ -127,10 +124,19 @@ function MovieDetails() {
               <ul className="ul-actors">
                 {cast.map(member => (
                   <li key={member.id}>
-                    <img
-                      src={`https://image.tmdb.org/t/p/w200/${member.profile_path}`}
-                      alt={member.name}
-                    />
+                    {member.profile_path ? (
+                      <img
+                        src={`https://image.tmdb.org/t/p/w200/${member.profile_path}`}
+                        alt={member.name}
+                      />
+                    ) : (
+                      <img
+                        src={notPeople}
+                        alt="Default Poster"
+                        className="movie-poster"
+                      />
+                    )}
+
                     <p className="ul-actors-p">
                       {member.name}
                       <br />
