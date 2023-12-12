@@ -1,4 +1,3 @@
-// MoviesContext.jsx
 import React, { createContext, useEffect, useState } from 'react';
 import { searchMovies } from '../api';
 import { useNavigate, useLocation } from 'react-router-dom';

@@ -1,5 +1,7 @@
-.h1-movies {
-  margin-left: 90px;
+.form-search {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
 }
 
 .input-search {
@@ -13,4 +15,19 @@
   height: 50px;
   border-radius: 15px;
   border-color: transparent;
+}
+
+.list-movies {
+  display: flex;
+  margin-top: 55px;
+  list-style-type: none;
+  gap: 40px;
+  flex-flow: wrap;
+  padding: 0px 10px 0px 10px;
+}
+
+.title-movie {
+  width: 200px;
+  margin-top: 5px;
+  font-size: 18px;
 }
