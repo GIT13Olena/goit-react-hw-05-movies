@@ -140,6 +140,10 @@
   margin-right: 90px;
 }
 
+.item-review {
+  text-align: start;
+}
+
 /* modal */
 
 .modalOverly {

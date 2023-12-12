@@ -12,8 +12,8 @@ function MovieDetails() {
   const [movie, setMovie] = useState(null);
   const [cast, setCast] = useState([]);
   const [reviews, setReviews] = useState([]);
-  const [isReviewsExpanded, setIsReviewsExpanded] = useState(false);
   const [isModalMoviesOpen, setIsModalMoviesOpen] = useState(false);
+  const [isModalReviewOpen, setIsModalReviewOpen] = useState(false);
 
   useEffect(() => {
     const fetchMovieDetails = async () => {
@@ -48,10 +48,6 @@ function MovieDetails() {
     fetchMovieReviews();
   }, [movieId]);
 
-  const toggleReviews = () => {
-    setIsReviewsExpanded(!isReviewsExpanded);
-  };
-
   if (!movie) {
     return <div>Loading...</div>;
   }
@@ -62,13 +58,22 @@ function MovieDetails() {
     setIsModalMoviesOpen(true);
   };
 
+  const openModalReview = () => {
+    setIsModalReviewOpen(true);
+  };
+
   const closeModalMovies = () => {
     setIsModalMoviesOpen(false);
+  };
+
+  const closeModalReview = () => {
+    setIsModalReviewOpen(false);
   };
 
   const handleOnClose = e => {
     if (e.code === 'Escape') {
       closeModalMovies();
+      closeModalReview();
     }
   };
 
@@ -149,19 +154,26 @@ function MovieDetails() {
           </div>
         )}
 
-        <button onClick={toggleReviews} className="button-reviews">
+        <button onClick={openModalReview} className="button-reviews">
           Reviews
         </button>
 
-        {isReviewsExpanded && (
-          <ul className="ul-all-reviews">
-            {reviews.map(review => (
-              <li key={review.id}>
-                <h2>Author: {review.author}</h2>
-                <p>{review.content}</p>
-              </li>
-            ))}
-          </ul>
+        {isModalReviewOpen && (
+          <div className="modalOverly" onClick={handleOverlyClick}>
+            <div className="modalContent">
+              <button onClick={closeModalReview} className="closeModalBtn">
+                &#10006;
+              </button>
+              <ul className="ul-all-reviews">
+                {reviews.map(review => (
+                  <li key={review.id} className="item-review">
+                    <h2>Author: {review.author}</h2>
+                    <p>{review.content}</p>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
         )}
       </div>
     </div>
